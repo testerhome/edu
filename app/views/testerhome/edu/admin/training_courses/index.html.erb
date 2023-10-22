@@ -1,0 +1,56 @@
+<% content_for :sitemap do %>
+  <span class="current"><%= t('plugin.edu') %></span>
+<% end %>
+
+<div class="card-title">
+  <a href="<%= new_admin_training_course_path %>" data-turbolinks-action="replace">
+    <i class="fa fa-plus"></i> 创建课程...
+  </a>
+</div>
+
+<table class="table table-bordered table-striped table-condensed">
+  <tr>
+    <th>#</th>
+    <th>课程标题</th>
+    <th>讲师</th>
+    <th>课程类型</th>
+    <th>价格</th>
+    <th>是否推荐</th>
+    <th>是否发布</th>
+    <th style="width:120px">操作</th>
+  </tr>
+  <% @training_courses.each do |training_course| %>
+    <tr class="post">
+      <td><%= training_course.id %></td>
+      <td class="title"><%= link_to training_course.title,edit_admin_training_course_path(training_course), method: 'get' %> </td>
+      <td class="author"><%= training_course.author %></td>
+      <td class="courseType"><%= training_course.courseType %></td>
+      <td class="price"><%= training_course.price %></td>
+      <td class="suggested"><%= training_course.suggested %></td>
+      <td class="published"><%= training_course.published %></td>
+      <td>
+        <% if training_course.deleted_at.blank? %>
+          <%= link_to "", admin_training_course_path(training_course), 'data-confirm' => 'Are you sure?', method: :delete, class: "fa fa-trash" %>
+        <% else %>
+          <%= link_to "", undestroy_admin_training_course_path(training_course), title: t("common.undelete"), 'data-confirm' => 'Are you sure?', method: :post, class: "fa fa-undo" %>
+        <% end %>
+
+        <% if training_course.suggested %>
+          <%= link_to '', unsuggest_admin_training_course_path(training_course), method: 'post', class: 'fa fa-thumbs-up fa-active' %>
+        <% else %>
+          <%= link_to '', suggest_admin_training_course_path(training_course), method: 'post', class: 'fa fa-thumbs-up' %>
+        <% end %>
+
+        <% if training_course.published %>
+          <%= link_to '', unpublish_admin_training_course_path(training_course), method: 'post', class: 'fa fa-store fa-active' %>
+        <% else %>
+          <%= link_to '', publish_admin_training_course_path(training_course), method: 'post', class: 'fa fa-store' %>
+        <% end %>
+
+        <%= link_to '',edit_admin_training_course_path(training_course), method: 'get', class: 'fa fa-pencil' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= paginate @training_courses %>

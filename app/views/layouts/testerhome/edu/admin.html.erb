@@ -1,0 +1,9 @@
+<% content_for :stylesheets do %>
+    <%= stylesheet_link_tag    "testerhome/edu/admin", media: "all" %>
+<% end %>
+
+<% content_for :javascripts do %>
+    <%= javascript_include_tag "testerhome/edu/admin" %>
+<% end %>
+
+<%= render template: "/layouts/admin" %>

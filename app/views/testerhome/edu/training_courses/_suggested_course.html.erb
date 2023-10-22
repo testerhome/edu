@@ -1,0 +1,14 @@
+<div class="sidebar_course">
+  <div class="title">
+    <% if show_nu %>
+        <% if suggested_course_counter < 3 %>
+            <span class="badge badge-light top3"><%= suggested_course_counter + 1 %></span></a>
+        <% else %>
+            <span class="badge badge-light"><%= suggested_course_counter + 1 %></span></a>
+        <% end %>
+    <% end %>
+    <%= link_to(suggested_course.courseUrlOfXiaoETong, title: suggested_course.title) do %>
+      <%= suggested_course.title %>
+    <% end %>
+  </div>
+</div>

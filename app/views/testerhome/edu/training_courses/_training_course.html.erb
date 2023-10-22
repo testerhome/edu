@@ -1,0 +1,17 @@
+<div class="col-sm-6 col-md-4">
+  <div class="thumbnail single-course">
+    <div class="card-img-top" style='aspect-ratio: 16 / 9;'>
+    <img class='training_course-cover-image' src="<%= training_course.cover_url %>">
+    </div>
+    <div class="caption">
+      <h5 class="card-title"><%= training_course.title %></h5>
+      <div class="training_course-desc"><%= training_course.description %></div>
+      <p class="info">
+        <%= training_course.author %>
+      </p>
+      <div class="d-flex flex-row-reverse ">
+        <a href="<%= training_course.courseUrlOfXiaoETong %>" class="btn btn-primary" role="button">报名学习</a>
+      </div>
+    </div>
+  </div>
+</div>

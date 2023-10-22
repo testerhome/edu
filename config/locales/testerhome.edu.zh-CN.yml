@@ -1,0 +1,17 @@
+"zh-CN":
+  plugin:
+    edu: "社区学堂"
+  activerecord:
+    models:
+      training_course: "课程"
+    attributes:
+      training_course:
+        title: 标题
+        cover: 封面
+        author: 作者
+        description: 课程描述
+        courseType: 课程类型
+        price: 价格
+        published: 是否发布
+        suggested: 是否推荐
+        courseUrlOfXiaoETong: 小鹅通的链接

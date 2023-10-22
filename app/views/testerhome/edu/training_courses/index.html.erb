@@ -1,0 +1,22 @@
+<% title_tag t('plugin.edu') %>
+
+<div class="row">
+  <%= render 'sidebar' %>
+  <div class="col-md-9 article-content">
+
+    <div id="training_courses-list" class="card training_courses">
+      <div class="card-header">最新课程</div>
+      <div class="card-body">
+        <% if @training_courses.blank? %>
+          <div class="no-result"><%= t('plugin.no_project') %></div>
+        <% else %>
+          <%= render partial: 'training_course', collection: @training_courses %>
+        <% end %>
+      </div>
+      <div class="card-footer hide-ios">
+        <%= paginate @training_courses %>
+      </div>
+    </div>
+  </div>
+
+</div>

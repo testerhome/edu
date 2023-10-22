@@ -1,0 +1,16 @@
+<div class="article-sidebar sidebar col-md-3 hide-ios">
+  <div class="card">
+    <div class="card-body">
+      <div class="alert alert-info ttf-link"><a href="https://edu.testerhome.com">TesterHome 学堂 </a><i class="fa fa-school"></i></div>
+      <div class="alert alert-info ttf-link"><a href="mailto: bd@testerhome.com">讲师合作 </a><i class="fa fa-phone"></i></div>
+      <hr />
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header">推荐课程 <i class="fa fa-bolt"></i></div>
+    <div class="card-body">
+      <%= render partial: "suggested_course", collection: @suggested_courses, locals: {suggest: false, show_nu: true, show_avatar: false} %>
+    </div>
+  </div>
+
+</div>

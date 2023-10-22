@@ -1,0 +1,15 @@
+<% content_for :stylesheets do %>
+    <%= stylesheet_link_tag    "testerhome/edu/application", media: "all" %>
+<% end %>
+
+<% content_for :javascripts do %>
+    <%= javascript_include_tag "testerhome/edu/application" %>
+<% end %>
+
+<% content_for :main do %>
+    <div id="testerhome-edu">
+      <%= yield %>
+    </div>
+<% end %>
+
+<%= render template: "/layouts/application" %>
