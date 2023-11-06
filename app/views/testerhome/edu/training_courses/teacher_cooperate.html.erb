@@ -1,0 +1,20 @@
+<% title_tag t('plugin.edu') %>
+
+<div class="row">
+  <%= render 'sidebar' %>
+  <div class="col-md-9 article-content">
+
+    <div id="training_courses-list" class="card training_courses">
+      <div class="card-header">讲师合作</div>
+      <div class="card-body">
+        <% if not Setting.teacher_cooperate_detail_html.blank? %>
+          <%= raw Setting.teacher_cooperate_detail_html %>
+        <% else %>
+          <a href="mailto: bd@testerhome.com"><i class="fa fa-envelope-o"></i>联系我们</a>
+        <%end %>
+      </div>
+
+    </div>
+  </div>
+
+</div>
