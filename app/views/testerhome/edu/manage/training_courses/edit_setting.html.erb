@@ -1,0 +1,23 @@
+<div class="card card-lg">
+  <div class="card-body">
+    <%= form_for('', url: manage_update_setting_path, method: "post", remote: true) do |f| %>
+
+        <div class="form-group">
+          <div class="form-group">
+            <textarea id="business_cooperate_detail_html" class="form-control" name="business_cooperate_detail_html" rows="4" placeholder="企业合作文案"><%=@business_cooperate_detail_html %></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="form-group">
+            <textarea id="teacher_cooperate_detail_html" class="form-control" name="teacher_cooperate_detail_html" rows="4" placeholder="讲师合作文案"><%=@teacher_cooperate_detail_html %></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "保存设置" , class: "btn btn-primary btn-block" , 'data-disable-with'=> t("common.saving") %>
+        </div>
+        <% end %>
+
+  </div>
+</div>

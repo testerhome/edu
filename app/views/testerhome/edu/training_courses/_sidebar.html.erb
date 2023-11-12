@@ -5,6 +5,11 @@
       <div class="alert alert-info ttf-link"><%= link_to '讲师合作', teacher_cooperate_path %> <i class="fa fa-phone"></i> </div>
       <div class="alert alert-info ttf-link"><%= link_to '企业实训', business_cooperate_path %> <i class="fa fa-phone"></i> </div>
       <hr />
+      <div class="alert">
+      <% if current_user && can_manage_training_courses?(current_user) %>
+        <%= link_to ' 学堂管理', manage_training_courses_path, class: "fa fa-pencil"%></i>
+      <% end %>
+      </div>
     </div>
   </div>
   <div class="card">
@@ -13,5 +18,4 @@
       <%= render partial: "suggested_course", collection: @suggested_courses, locals: {suggest: false, show_nu: true, show_avatar: false} %>
     </div>
   </div>
-
 </div>

@@ -1,0 +1,59 @@
+<div class="card card-lg">
+  <div class="card-body">
+    <%= form_for [:manage, @training_course] do |f| %>
+      <%= render "shared/error_messages" , target: @training_course %>
+
+        <div class="form-group">
+          <%= f.label :title %>
+            <%= f.text_field :title, class: "form-control" , placeholder: "课程标题" , :required=> true%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :cover %>
+            <%= f.file_field :cover, class: "form-control" %>
+        </div>
+
+        <% if not @training_course.new_record? %>
+                <%= image_tag(@training_course.cover.url, style: "width: 150px") %>
+        <% end %>
+        <div class="form-group">
+          <%= f.label :author %>
+            <%= f.text_field :author, class: "form-control" , :required=> true%>
+        </div>
+
+        <div class="form-group" data-controller='description-editor'>
+          <%= f.label :description, "课程描述" %> <span class="master">*</span>
+            <%= render "/shared/editor_toolbar" %>
+              <%= f.text_area :description, placeholder: '请添加课程描述， 支持markdown' , row: 20,
+                class: "topic-editor form-control closewarning" , style: "height: 120px" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :courseType %>
+            <%= f.select :courseType, TrainingCourse.courseTypes.keys,{}, {class: "form-control" , :required=> true}%>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :price %>
+            <%= f.text_field :price, class: "form-control" , :required=> true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :courseUrlOfXiaoETong %>
+            <%= f.text_field :courseUrlOfXiaoETong, class: "form-control" , :required=> true %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :published %>
+            <%= f.check_box :published%>
+              <%= f.label :suggested %>
+                <%= f.check_box :suggested%>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit "保存课程" , class: "btn btn-primary btn-block" , 'data-disable-with'=> t("common.saving") %>
+        </div>
+        <% end %>
+
+  </div>
+</div>
